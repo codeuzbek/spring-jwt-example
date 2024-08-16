@@ -1,0 +1,6 @@
+### Generate token
+GET localhost:8080/token/generate
+
+### Parse token
+GET localhost:8080/token/pars/eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsImlkIjoxLCJ1c2VybmFtZSI6Im1hemdpeWV2Iiwic3ViIjoibWF6Z2l5ZXYiLCJpYXQiOjE3MjM4MDA4MzUsImV4cCI6MTcyMzg4NzIzNX0.mCDFgu3vfLOkqXljoZ_92uOK__TTLzajX1hIgSlzAuI
+
