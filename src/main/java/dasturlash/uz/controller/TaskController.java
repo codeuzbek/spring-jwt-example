@@ -20,19 +20,19 @@ public class TaskController {
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping({"", "/"}) // /task    /task/
+    @GetMapping({"", "/"})
     public ResponseEntity<List<TaskDTO>> getAll() {
         List<TaskDTO> result = taskService.getAll();
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/finished/all") //  /task/active
+    @GetMapping("/finished/all")
     public ResponseEntity<List<TaskDTO>> getFinished() {
         List<TaskDTO> result = taskService.getAll();
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/my/all") //  /task/active
+    @GetMapping("/my/all")
     public ResponseEntity<List<TaskDTO>> getMyTaskList() {
         List<TaskDTO> result = taskService.getAll();
         return ResponseEntity.ok(result);
