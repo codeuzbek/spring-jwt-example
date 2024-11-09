@@ -14,31 +14,32 @@ import java.util.Map;
 
 public class JwtUtil {
     private static final int tokenLiveTime = 1000 * 3600 * 24; // 1-day
+    //    private static final int tokenLiveTime = 1000; // 1-sec
     private static final String secretKey = "veryLongSecretmazgillattayevlasharaaxmojonjinnijonsurbetbekkiydirhonuxlatdibekloxovdangasabekochkozjonduxovmashaynikmaydagapchishularnioqiganbolsangizgapyoqaniqsizmazgi";
 
     public static String encode(String username, String role) {
         Map<String, Object> extraClaims = new HashMap<>();
-        extraClaims.put("username", username);
         extraClaims.put("role", role);
 
         return Jwts
                 .builder()
-                .setClaims(extraClaims)
-                .setSubject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + tokenLiveTime))
-                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .claims(extraClaims)
+                .subject(username)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + tokenLiveTime))
+                .signWith(getSignInKey())
                 .compact();
     }
 
     public static JwtDTO decode(String token) {
         Claims claims = Jwts
-                .parserBuilder()
+                .parser()
                 .setSigningKey(getSignInKey())
                 .build()
-                .parseClaimsJws(token)
-                .getBody();
-        String username = (String) claims.get("username");
+                .parseSignedClaims(token)
+                .getPayload();
+
+        String username = claims.getSubject();
         String role = (String) claims.get("role");
         return new JwtDTO(username, role);
     }
@@ -48,14 +49,4 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public boolean isTokenValid(String token) {
-        Claims claims = Jwts
-                .parserBuilder()
-                .setSigningKey(getSignInKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-        Date expDate = claims.getExpiration();
-        return expDate.before(new Date());
-    }
 }

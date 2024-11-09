@@ -1,6 +1,11 @@
 ### Generate token
 GET localhost:8080/token/generate
 
+
+
 ### Parse token
-GET localhost:8080/token/pars/eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsImlkIjoxLCJ1c2VybmFtZSI6Im1hemdpeWV2Iiwic3ViIjoibWF6Z2l5ZXYiLCJpYXQiOjE3MjM4MDA4MzUsImV4cCI6MTcyMzg4NzIzNX0.mCDFgu3vfLOkqXljoZ_92uOK__TTLzajX1hIgSlzAuI
+GET localhost:8080/token/parse/eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6Im1hemdpeWV2MjIyMjIyIiwiaWF0IjoxNzI1MjgzOTcyLCJleHAiOjE3MjUzNzAzNzJ9.PQmK12XbzZ7de7wALEXFlz9CY3ijQ6Nh2cbjA8_UZZo
+
+### Parse token
+GET localhost:8080/token/parse/catch/eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6Im1hemdpeWV2MjIyMjIyIiwiaWF0IjoxNzI1MjgzOTcyLCJleHAiOjE3MjUzNzAzNzJ9.PQmK12XbzZ7de7wALEXFlz9CY3ijQ6Nh2cbjA8_UZZo
 
